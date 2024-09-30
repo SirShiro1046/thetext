@@ -3,13 +3,15 @@ package org.codelab.thetext.controllers;
 
 import lombok.AllArgsConstructor;
 import org.codelab.thetext.domains.MessageDomain;
-import org.codelab.thetext.dtos.MessageRequestDTO;
+import org.codelab.thetext.dtos.request.MessageRequestDTO;
+import org.codelab.thetext.dtos.response.MessageResponseDTO;
 import org.codelab.thetext.persistence.entities.Message;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/messages")
@@ -25,9 +27,23 @@ public class MessageController {
         return ResponseEntity.status(201).body(message);
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Message>> getMessagesByUser(@PathVariable Long userId) {
-        List<Message> messages = messageDomain.getMessagesByUser(userId);
-        return ResponseEntity.ok(messages);
-    }
+
+
+    //refactorizar despues
+@GetMapping("/user/{userId}")
+public ResponseEntity<List<MessageResponseDTO>> getMessagesByUser(@PathVariable Long userId) {
+    List<Message> messages = messageDomain.getMessagesByUser(userId);
+    List<MessageResponseDTO> response = messages.stream().map(message -> {
+        MessageResponseDTO dto = new MessageResponseDTO();
+        dto.setId(message.getId());
+        dto.setContent(message.getContent());
+        dto.setSenderId(message.getSender().getId());
+        dto.setSenderUsername(message.getSender().getUsername());
+        dto.setReceiverId(message.getReceiver().getId());
+        dto.setReceiverUsername(message.getReceiver().getUsername());
+        dto.setTimestamp(message.getTimestamp());
+        return dto;
+    }).collect(Collectors.toList());
+    return ResponseEntity.ok(response);
+}
 }

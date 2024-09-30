@@ -1,6 +1,5 @@
 package org.codelab.thetext.services;
 
-import org.codelab.thetext.dtos.MessageRequestDTO;
 import org.codelab.thetext.persistence.entities.Message;
 import org.codelab.thetext.persistence.entities.User;
 

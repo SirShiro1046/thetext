@@ -3,7 +3,7 @@ package org.codelab.thetext.controllers;
 
 import lombok.AllArgsConstructor;
 import org.codelab.thetext.domains.FriendshipDomain;
-import org.codelab.thetext.dtos.FriendshipRequestDTO;
+import org.codelab.thetext.dtos.request.FriendshipRequestDTO;
 import org.codelab.thetext.persistence.entities.Friendship;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

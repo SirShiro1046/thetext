@@ -1,4 +1,4 @@
-package org.codelab.thetext.dtos;
+package org.codelab.thetext.dtos.request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

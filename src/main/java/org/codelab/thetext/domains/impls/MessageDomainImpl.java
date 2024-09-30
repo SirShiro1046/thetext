@@ -2,7 +2,7 @@ package org.codelab.thetext.domains.impls;
 
 import lombok.AllArgsConstructor;
 import org.codelab.thetext.domains.MessageDomain;
-import org.codelab.thetext.dtos.MessageRequestDTO;
+import org.codelab.thetext.dtos.request.MessageRequestDTO;
 import org.codelab.thetext.persistence.entities.Message;
 import org.codelab.thetext.persistence.entities.User;
 import org.codelab.thetext.services.MessageService;

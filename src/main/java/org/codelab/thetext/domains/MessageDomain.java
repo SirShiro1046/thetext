@@ -1,6 +1,6 @@
 package org.codelab.thetext.domains;
 
-import org.codelab.thetext.dtos.MessageRequestDTO;
+import org.codelab.thetext.dtos.request.MessageRequestDTO;
 import org.codelab.thetext.persistence.entities.Message;
 
 import java.util.List;

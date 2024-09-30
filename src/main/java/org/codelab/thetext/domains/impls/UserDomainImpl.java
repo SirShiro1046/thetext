@@ -3,7 +3,7 @@ package org.codelab.thetext.domains.impls;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.codelab.thetext.domains.UserDomain;
-import org.codelab.thetext.dtos.UserRequestDTO;
+import org.codelab.thetext.dtos.request.UserRequestDTO;
 import org.codelab.thetext.persistence.entities.User;
 import org.codelab.thetext.services.UserService;
 import org.springframework.stereotype.Service;
