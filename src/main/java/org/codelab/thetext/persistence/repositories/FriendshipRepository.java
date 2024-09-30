@@ -1,4 +1,4 @@
-package org.codelab.thetext.persistence.repository;
+package org.codelab.thetext.persistence.repositories;
 
 import org.codelab.thetext.persistence.entities.Friendship;
 import org.codelab.thetext.persistence.entities.User;
