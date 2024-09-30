@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.codelab.thetext.persistence.entities.Friendship;
 import org.codelab.thetext.persistence.entities.User;
-import org.codelab.thetext.persistence.repository.FriendshipRepository;
+import org.codelab.thetext.persistence.repositories.FriendshipRepository;
 import org.codelab.thetext.services.FriendshipService;
 import org.springframework.stereotype.Service;
 

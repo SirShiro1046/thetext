@@ -39,6 +39,11 @@ public class User  implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "friend_id"))
     private Set<User> friends = new HashSet<>();
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles;
+
+
+
     public User(Long id) {
         this.id = id;
     }

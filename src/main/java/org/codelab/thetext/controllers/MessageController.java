@@ -21,10 +21,21 @@ public class MessageController {
     private final SimpMessagingTemplate messagingTemplate;
 
     @PostMapping("/send")
-    public ResponseEntity<Message> sendMessage(@RequestBody MessageRequestDTO messageRequest) {
+    public ResponseEntity<MessageResponseDTO> sendMessage(@RequestBody MessageRequestDTO messageRequest) {
         Message message = messageDomain.sendMessage(messageRequest);
         messagingTemplate.convertAndSend("/topic/messages", message);
-        return ResponseEntity.status(201).body(message);
+
+        // Map Message entity to MessageResponseDTO
+        MessageResponseDTO messageDTO = new MessageResponseDTO();
+        messageDTO.setId(message.getId());
+        messageDTO.setContent(message.getContent());
+        messageDTO.setSenderId(message.getSender().getId());
+        messageDTO.setSenderUsername(message.getSender().getUsername());
+        messageDTO.setReceiverId(message.getReceiver().getId());
+        messageDTO.setReceiverUsername(message.getReceiver().getUsername());
+        messageDTO.setTimestamp(message.getTimestamp());
+
+        return ResponseEntity.status(201).body(messageDTO);
     }
 
 

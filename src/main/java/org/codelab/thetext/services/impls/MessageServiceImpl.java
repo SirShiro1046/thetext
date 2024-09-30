@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.codelab.thetext.persistence.entities.Message;
 import org.codelab.thetext.persistence.entities.User;
-import org.codelab.thetext.persistence.repository.MessageRepository;
+import org.codelab.thetext.persistence.repositories.MessageRepository;
 import org.codelab.thetext.services.MessageService;
 import org.springframework.stereotype.Service;
 
